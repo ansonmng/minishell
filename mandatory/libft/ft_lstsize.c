@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: steh <steh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: steh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 22:01:46 by steh              #+#    #+#             */
-/*   Updated: 2022/07/12 21:44:00 by steh             ###   ########.fr       */
+/*   Created: 2021/12/02 07:45:31 by steh              #+#    #+#             */
+/*   Updated: 2021/12/02 07:48:56 by steh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
-#include "lexer.h"
+#include "libft.h"
 
-int	main(int ac, char *av[], char *envp[])
+int	ft_lstsize(t_list *lst)
 {
-	t_shell	shell;
+	int	len;
 
-	(void)ac;
-	(void)av;
-	shell.envp = envp;
-	setup();
-	shell_loop(&shell);
-	return (0);
+	len = 0;
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		len++;
+	}
+	return (len);
 }

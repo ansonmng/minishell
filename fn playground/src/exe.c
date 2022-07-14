@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   exe.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: steh <steh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 22:01:46 by steh              #+#    #+#             */
-/*   Updated: 2022/07/12 21:44:00 by steh             ###   ########.fr       */
+/*   Created: 2022/06/20 21:32:43 by steh              #+#    #+#             */
+/*   Updated: 2022/06/20 21:35:36 by steh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
-#include "lexer.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <time.h>
 
-int	main(int ac, char *av[], char *envp[])
+int main(int argc, char const *argv[])
 {
-	t_shell	shell;
+	int	pid = fork();
+	if (pid == -1)
+		return (1);
+	
+	if (pid == 0)
+	{
+		execlp("ping", "ping", "-c", "3", "google.com", NULL);
+		printf("THIS SHOULD NOT PRINT ON TERMINAL!\n");
+	}
+	else
+	{
+		wait(NULL);
+		printf("Success\n");
+		printf("Some post processing goes here\n");
+	}
 
-	(void)ac;
-	(void)av;
-	shell.envp = envp;
-	setup();
-	shell_loop(&shell);
 	return (0);
 }

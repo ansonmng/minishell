@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: steh <steh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: steh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 22:01:46 by steh              #+#    #+#             */
-/*   Updated: 2022/07/12 21:44:00 by steh             ###   ########.fr       */
+/*   Created: 2021/12/01 18:19:02 by steh              #+#    #+#             */
+/*   Updated: 2021/12/01 18:32:30 by steh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
-#include "lexer.h"
+#include "libft.h"
 
-int	main(int ac, char *av[], char *envp[])
+void	ft_putstr_fd(char *s, int fd)
 {
-	t_shell	shell;
-
-	(void)ac;
-	(void)av;
-	shell.envp = envp;
-	setup();
-	shell_loop(&shell);
-	return (0);
+	if (!s || fd < 0)
+		return ;
+	while (*s)
+	{
+		ft_putchar_fd(*s, fd);
+		s++;
+	}
 }

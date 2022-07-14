@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: steh <steh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: steh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 22:01:46 by steh              #+#    #+#             */
-/*   Updated: 2022/07/12 21:44:00 by steh             ###   ########.fr       */
+/*   Created: 2021/12/02 12:44:46 by steh              #+#    #+#             */
+/*   Updated: 2021/12/02 13:14:07 by steh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
-#include "lexer.h"
+#include "libft.h"
 
-int	main(int ac, char *av[], char *envp[])
+void	*ft_memset(void *b, int c, size_t len)
 {
-	t_shell	shell;
+	unsigned char	*ptr;
+	size_t			i;
 
-	(void)ac;
-	(void)av;
-	shell.envp = envp;
-	setup();
-	shell_loop(&shell);
-	return (0);
+	ptr = (unsigned char *)b;
+	i = 0;
+	while (i < len)
+		ptr[i++] = (unsigned char)c;
+	return (b);
 }

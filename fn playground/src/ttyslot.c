@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ttyslot.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: steh <steh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 22:01:46 by steh              #+#    #+#             */
-/*   Updated: 2022/07/12 21:44:00 by steh             ###   ########.fr       */
+/*   Created: 2022/06/22 18:17:23 by steh              #+#    #+#             */
+/*   Updated: 2022/06/22 18:23:08 by steh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
-#include "lexer.h"
+#include <stdio.h>
+#include <unistd.h>
 
-int	main(int ac, char *av[], char *envp[])
+//  ttyslot - find the slot of the current user's terminal in some file /etc/ttys
+int main(int argc, char const *argv[])
 {
-	t_shell	shell;
-
-	(void)ac;
-	(void)av;
-	shell.envp = envp;
-	setup();
-	shell_loop(&shell);
-	return (0);
+	int	slot = ttyslot();
+	printf("This program is running on tty %d\n", slot);
+	return 0;
 }

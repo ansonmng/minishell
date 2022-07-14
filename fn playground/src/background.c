@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   background.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: steh <steh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 22:01:46 by steh              #+#    #+#             */
-/*   Updated: 2022/07/12 21:44:00 by steh             ###   ########.fr       */
+/*   Created: 2022/06/20 22:58:08 by steh              #+#    #+#             */
+/*   Updated: 2022/06/20 23:03:39 by steh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
-#include "lexer.h"
+#include <stdlib.h>
+#include <stdio.h>
 
-int	main(int ac, char *av[], char *envp[])
+int main(int argc, char const *argv[])
 {
-	t_shell	shell;
+	int	x;
 
-	(void)ac;
-	(void)av;
-	shell.envp = envp;
-	setup();
-	shell_loop(&shell);
+	printf("Input number: ");
+	scanf("%d", &x);
+	printf("Result %d * 5 = %d\n", x, x * 5);
+	// press Ctrl + Z to pause program (SIGTSTP) to background
+	// press fg<pid> to bring process to foreground (SIGCONT) 
 	return (0);
 }

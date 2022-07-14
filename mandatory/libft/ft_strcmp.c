@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: steh <steh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 22:01:46 by steh              #+#    #+#             */
-/*   Updated: 2022/07/12 21:44:00 by steh             ###   ########.fr       */
+/*   Created: 2022/05/07 21:16:28 by steh              #+#    #+#             */
+/*   Updated: 2022/05/07 21:16:40 by steh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
-#include "lexer.h"
+#include "libft.h"
 
-int	main(int ac, char *av[], char *envp[])
+int	ft_strcmp(char *s1, char *s2)
 {
-	t_shell	shell;
-
-	(void)ac;
-	(void)av;
-	shell.envp = envp;
-	setup();
-	shell_loop(&shell);
-	return (0);
+	while (*s1 == *s2 && *s1 != '\0' && *s2 != '\0')
+	{
+		s1++;
+		s2++;
+	}
+	return (*s1 - *s2);
 }

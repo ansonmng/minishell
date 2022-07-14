@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: steh <steh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: steh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 22:01:46 by steh              #+#    #+#             */
-/*   Updated: 2022/07/12 21:44:00 by steh             ###   ########.fr       */
+/*   Created: 2021/12/02 07:59:34 by steh              #+#    #+#             */
+/*   Updated: 2021/12/02 08:08:47 by steh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
-#include "lexer.h"
+#include "libft.h"
 
-int	main(int ac, char *av[], char *envp[])
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_shell	shell;
+	t_list	*last_elem;
 
-	(void)ac;
-	(void)av;
-	shell.envp = envp;
-	setup();
-	shell_loop(&shell);
-	return (0);
+	if (*lst == NULL)
+		*lst = new;
+	else
+	{
+		last_elem = ft_lstlast(*lst);
+		last_elem->next = new;
+	}
 }

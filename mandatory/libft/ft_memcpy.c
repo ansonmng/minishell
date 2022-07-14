@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: steh <steh@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: steh <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 22:01:46 by steh              #+#    #+#             */
-/*   Updated: 2022/07/12 21:44:00 by steh             ###   ########.fr       */
+/*   Created: 2021/12/03 13:18:43 by steh              #+#    #+#             */
+/*   Updated: 2021/12/03 13:18:46 by steh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
-#include "lexer.h"
+#include "libft.h"
 
-int	main(int ac, char *av[], char *envp[])
+void	*ft_memcpy(void *dest, const void *src, size_t num)
 {
-	t_shell	shell;
+	size_t	i;
 
-	(void)ac;
-	(void)av;
-	shell.envp = envp;
-	setup();
-	shell_loop(&shell);
-	return (0);
+	i = 0;
+	if (!dest && !src)
+		return (NULL);
+	while (i < num)
+	{
+		*(char *)(dest + i) = *(char *)(src + i);
+		i++;
+	}
+	return (dest);
 }

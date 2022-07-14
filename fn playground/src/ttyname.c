@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ttyname.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: steh <steh@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/24 22:01:46 by steh              #+#    #+#             */
-/*   Updated: 2022/07/12 21:44:00 by steh             ###   ########.fr       */
+/*   Created: 2022/06/22 18:07:51 by steh              #+#    #+#             */
+/*   Updated: 2022/06/22 18:10:27 by steh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse.h"
-#include "lexer.h"
+#include <stdio.h>
+#include <unistd.h>
 
-int	main(int ac, char *av[], char *envp[])
+// The function ttyname() returns a pointer to a pathname on success. 
+int main(int argc, char const *argv[])
 {
-	t_shell	shell;
-
-	(void)ac;
-	(void)av;
-	shell.envp = envp;
-	setup();
-	shell_loop(&shell);
-	return (0);
+	printf("This program is running on %s\n", ttyname(STDIN_FILENO));
+	return 0;
 }
